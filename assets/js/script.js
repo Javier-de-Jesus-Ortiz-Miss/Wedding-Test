@@ -222,11 +222,11 @@ window.addEventListener('load', () => {
         createParticles();
 
         openInvitationBtn.addEventListener('click', () => {
-            removeParticles();
-            welcomeModal.style.display = 'none';
+            removeParticles(); // Elimina las partículas
+            welcomeModal.remove(); // Elimina el modal del DOM
         });
 
-        history.scrollRestoration = 'manual';
-        window.scrollTo(0, 0);
+        history.scrollRestoration = 'manual'; // Desactiva la restauración automática del desplazamiento
+        window.scrollTo(0, 0); // Asegura que la página comience en la parte superior
     }
 });
