@@ -1,9 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=MonteCarlo&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=MonteCarlo&family=Montserrat:wght@400;700&display=swap');
 
 * {
   font-family: "Montserrat", sans-serif;
   padding: 0;
   margin: 0;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-display: swap;
 }
 
 html, body {
@@ -480,13 +485,17 @@ audio {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Reduce la duración */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Reducimos la duración */
   will-change: opacity, transform; /* Mejora el rendimiento */
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.new-container{
+  margin-bottom: 60vh;
 }
 
 .rectangle2{

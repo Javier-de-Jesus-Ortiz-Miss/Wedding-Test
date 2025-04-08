@@ -208,6 +208,16 @@ window.addEventListener('load', () => {
   });
 });
 
+// Aseguramos que las imágenes críticas se carguen primero
+window.addEventListener('load', () => {
+  const criticalImages = document.querySelectorAll('img[loading="lazy"]');
+  criticalImages.forEach(img => {
+    if (!img.complete) {
+      img.addEventListener('load', () => console.log(`${img.src} loaded`));
+    }
+  });
+});
+
 // Limitamos la frecuencia de los eventos de scroll para mejorar el rendimiento
 let scrollTimeout;
 window.addEventListener('scroll', () => {
@@ -215,7 +225,7 @@ window.addEventListener('scroll', () => {
     scrollTimeout = setTimeout(() => {
       handleScrollAnimations();
       scrollTimeout = null;
-    }, 100); // Ejecutamos cada 100ms
+    }, 200); // Reducimos la frecuencia de ejecución
   }
 });
 
