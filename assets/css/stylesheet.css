@@ -482,14 +482,17 @@ audio {
   }
 }
 
-.fade-in {
+/* Animación fade-in específica para welcome-modal-content y container1 */
+.welcome-modal-content.fade-in,
+.container1.fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Reducimos la duración */
-  will-change: opacity, transform; /* Mejora el rendimiento */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  will-change: opacity, transform;
 }
 
-.fade-in.visible {
+.welcome-modal-content.visible,
+.container1.visible {
   opacity: 1;
   transform: translateY(0);
 }

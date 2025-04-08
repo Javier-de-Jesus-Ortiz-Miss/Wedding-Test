@@ -181,17 +181,8 @@ function resetForm() {
 
 loadGuestData();
 
-function handleScrollAnimations() {
-  const elements = document.querySelectorAll('.fade-in');
-  const windowHeight = window.innerHeight;
-
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < windowHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-}
+// Eliminamos la función handleScrollAnimations y su uso
+// Eliminamos el evento de scroll que llamaba a handleScrollAnimations
 
 // Aseguramos que las imágenes carguen antes de aplicar animaciones
 window.addEventListener('load', () => {
@@ -200,11 +191,16 @@ window.addEventListener('load', () => {
     loadingScreen.style.display = 'none';
   }
 
-  handleScrollAnimations();
+  // Aplicamos la clase visible solo a los elementos específicos
+  document.querySelector('.welcome-modal-content').classList.add('visible');
+  document.querySelector('.container1').classList.add('visible');
 
   const images = document.querySelectorAll('img');
   images.forEach(img => {
-    img.addEventListener('load', handleScrollAnimations);
+    img.addEventListener('load', () => {
+      document.querySelector('.welcome-modal-content').classList.add('visible');
+      document.querySelector('.container1').classList.add('visible');
+    });
   });
 });
 
@@ -216,17 +212,6 @@ window.addEventListener('load', () => {
       img.addEventListener('load', () => console.log(`${img.src} loaded`));
     }
   });
-});
-
-// Limitamos la frecuencia de los eventos de scroll para mejorar el rendimiento
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-  if (!scrollTimeout) {
-    scrollTimeout = setTimeout(() => {
-      handleScrollAnimations();
-      scrollTimeout = null;
-    }, 200); // Reducimos la frecuencia de ejecución
-  }
 });
 
 function createParticles() {
