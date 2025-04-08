@@ -4,6 +4,9 @@
   font-family: "Montserrat", sans-serif;
   padding: 0;
   margin: 0;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+  text-rendering: optimizeLegibility; 
 }
 
 html, body {
@@ -830,6 +833,82 @@ audio {
 
 #custom-alert-modal .modal-content button:hover {
   background-color: #b5883f;
+}
+
+#welcome-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.welcome-modal-content {
+  background-color: #F4D7A1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 400px;
+  border: 5px solid #AD9466; /* Added border */
+}
+
+.welcome-modal-content p {
+  font-family: "MonteCarlo", sans-serif; 
+  font-size: 54px;
+  margin-bottom: 20px;
+  color: #784C01;
+  font-weight: 600;
+}
+
+.welcome-modal-content button {
+  background-color: #d18a05;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.welcome-modal-content button:hover {
+  background-color: #b5883f;
+}
+
+#particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Behind the welcome modal content */
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #FFD700; /* Gold color */
+  border-radius: 50%;
+  animation: particle-animation 3s linear infinite;
+}
+
+@keyframes particle-animation {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
 }
 
 @media screen and (min-width: 1024px) {

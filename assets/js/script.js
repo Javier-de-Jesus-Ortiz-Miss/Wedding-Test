@@ -200,7 +200,33 @@ function handleScrollAnimations() {
 window.addEventListener('scroll', handleScrollAnimations);
 window.addEventListener('load', handleScrollAnimations);
 
+function createParticles() {
+    const particlesContainer = document.getElementById('particles-container');
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+function removeParticles() {
+    const particlesContainer = document.getElementById('particles-container');
+    particlesContainer.innerHTML = ''; // Clear all particles
+}
+
 window.addEventListener('load', () => {
-  history.scrollRestoration = 'manual'; // Deshabilitar restauración automática del scroll
-  window.scrollTo(0, 0); // Forzar el desplazamiento al inicio
+    const welcomeModal = document.getElementById('welcome-modal');
+    const openInvitationBtn = document.getElementById('open-invitation-btn');
+
+    createParticles(); // Initialize particles
+
+    openInvitationBtn.addEventListener('click', () => {
+        removeParticles(); // Remove particles
+        welcomeModal.style.display = 'none';
+    });
+
+    history.scrollRestoration = 'manual'; // Disable automatic scroll restoration
+    window.scrollTo(0, 0); // Force scroll to the top
 });
