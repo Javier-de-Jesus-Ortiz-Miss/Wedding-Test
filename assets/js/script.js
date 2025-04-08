@@ -1,4 +1,4 @@
-const weddingDate = new Date('2025-05-16T17:00:00').getTime();
+const weddingDate = new Date('2025-05-16T17:30:00').getTime();
 
 const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
@@ -34,8 +34,23 @@ async function loadGuestData() {
     guestData = await response.json();
   } catch (error) {
     console.error('Error al obtener los datos:', error);
-    alert('Error al cargar la lista de invitados.');
   }
+}
+
+function showModalAlert(message) {
+    const modal = document.createElement('div');
+    modal.id = 'custom-alert-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <p>${message}</p>
+            <button id="close-modal-btn">Cerrar</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    document.getElementById('close-modal-btn').addEventListener('click', () => {
+        document.body.removeChild(modal);
+    });
 }
 
 // Verificar número de teléfono y mostrar invitados
@@ -99,7 +114,7 @@ async function verifyPhone() {
       });
     
     } else {
-      alert('Número no encontrado.');
+      showModalAlert('Número no encontrado.');
     }
   }
 
@@ -108,11 +123,18 @@ async function submitForm() {
   const phone = document.getElementById('phone').value;
   const comment = document.getElementById('comment').value;
 
+  // Mostrar animación de carga
+  const loadingOverlay = document.createElement('div');
+  loadingOverlay.id = 'loading-overlay';
+  loadingOverlay.innerHTML = '<div class="spinner"></div>';
+  document.body.appendChild(loadingOverlay);
+
   // Recopilar nombres seleccionados
   const selectedGuests = Array.from(document.querySelectorAll('input[name="guests"]:checked'))
                               .map(checkbox => checkbox.value);
-    if (!phone || (selectedGuests.length === 0 && !document.getElementById('not-attending').checked)) {
-    alert('Por favor, complete los datos del formulario antes de confirmar la asistencia.');
+  if (!phone || (selectedGuests.length === 0 && !document.getElementById('not-attending').checked)) {
+    showModalAlert('Por favor, complete los datos del formulario antes de confirmar la asistencia.');
+    document.body.removeChild(loadingOverlay); // Ocultar animación de carga
     return;
   }
 
@@ -135,11 +157,13 @@ async function submitForm() {
       body: JSON.stringify(data)
     });
 
-    alert('Asistencia confirmada correctamente.');
+    showModalAlert('Asistencia confirmada correctamente.');
     resetForm();
   } catch (error) {
     console.error('Error:', error);
-    alert('Error al enviar la confirmación.');
+    showModalAlert('Error al enviar la confirmación.');
+  } finally {
+    document.body.removeChild(loadingOverlay); // Ocultar animación de carga
   }
 }
 
@@ -159,3 +183,24 @@ function resetForm() {
 }
 
 loadGuestData();
+
+
+function handleScrollAnimations() {
+  const elements = document.querySelectorAll('.fade-in');
+  const windowHeight = window.innerHeight;
+
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < windowHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', handleScrollAnimations);
+window.addEventListener('load', handleScrollAnimations);
+
+window.addEventListener('load', () => {
+  history.scrollRestoration = 'manual'; // Deshabilitar restauración automática del scroll
+  window.scrollTo(0, 0); // Forzar el desplazamiento al inicio
+});

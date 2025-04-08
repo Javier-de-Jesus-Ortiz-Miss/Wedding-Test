@@ -12,28 +12,28 @@
 
 <body>
     <div class="wedding-invitation-wrapper">
-        <section>
+        <section class="fade-in">
             <div class="framepage">
-                <img src="assets/img/framepage1.png" alt="framepage">
+                <img src="assets/img/framepage1-min.webp" alt="framepage" loading="lazy">
             </div>
         </section>
 
-        <div class="container1">
+        <div class="container1 fade-in">
             <div class="wedding-details">
                 <div class="flowerframe1">
-                    <img src="assets/img/flowerfram.webp" alt="frameflowers">
+                    <img src="assets/img/flowerfram.webp" alt="frameflowers" loading="lazy">
                 </div>
                 <div class="flowerframe2">
-                    <img src="assets/img/flowerfram.webp" alt="frameflowers">
+                    <img src="assets/img/flowerfram.webp" alt="frameflowers" loading="lazy">
                 </div>
                 <div class="feather1">
-                    <img src="assets/img/feather.png" alt="feather">
+                    <img src="assets/img/feather-min.webp" alt="feather" loading="lazy">
                 </div>
                 <div class="feather2">
-                    <img src="assets/img/feather.png" alt="feather">
+                    <img src="assets/img/feather-min.webp" alt="feather" loading="lazy">
                 </div>
                 <div class="framenames">
-                    <img src="assets/img/marco.png" alt="framenames">
+                    <img src="assets/img/marco-min.webp" alt="framenames"loading="lazy">
 
                     <div class="framenamestext">
                         <div class="phrase">
@@ -56,10 +56,10 @@
             </div>
             <div class="photo-and-flower">
                 <div class="photocommitted">
-                    <img src="assets/img/photocommitted1.jpeg" alt="committed">
+                    <img src="assets/img/photocommitted1-min.webp" alt="committed" loading="lazy">
                 </div>
                 <div class="flowerwedding">
-                    <img src="assets/img/flowerfram.webp" alt="flowerwedding">
+                    <img src="assets/img/flowerfram.webp" alt="flowerwedding" loading="lazy">
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                     <p class="audio-text">Escucha nuestra canción:</p>
                     <div class="audio-player">
                         <audio autoplay controls loop>
-                            <source src="assets/audio/audiobackground.mp3" type="audio/mpeg">
+                            <source src="assets/audio/audiobackground.mp3" type="audio/mpeg" loading="lazy">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
                     </div>
@@ -82,7 +82,7 @@
                     <p class="info">Acompáñanos a una cena con motivo de nuestra boda civil.</p>
                     <p class="info2">(Habrá baño de piscina)</p>
                     <div class="flower-decoration-datails">
-                        <img src="assets/img/flowerfram.webp" alt="flowerdetails">
+                        <img src="assets/img/flowerfram.webp" alt="flowerdetails" loading="lazy"loading="lazy"> 
                     </div>
                 </div>
             </div>
@@ -113,16 +113,16 @@
                             <div class="map-link-container">
                                 <p class="map-link">
                                     <a href="https://www.google.com/maps/place/20%C2%B057'05.8%22N+89%C2%B036'47.4%22W/@20.9516767,-89.6135682,19.1z/data=!4m4!3m3!8m2!3d20.9516234!4d-89.6131675?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
-                                        target="_blank">
+                                        target="_blank" loading="lazy">
                                         <i class="fas fa-map-marker-alt"></i> Ver en Google Maps
                                     </a>
                                 </p>
                             </div>
                             <div class="flowersframe1">
-                                <img src="assets/img/flowerfram.webp" alt="flowersframe">
+                                <img src="assets/img/flowerfram.webp" alt="flowersframe" loading="lazy">
                             </div>
                             <div class="flowersframe2">
-                                <img src="assets/img/flowerfram.webp" alt="flowersframe2">
+                                <img src="assets/img/flowerfram.webp" alt="flowersframe2" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -156,11 +156,11 @@
             
                 <div class="rectangle2-wrapper">
                     <div class="rectangle2">
-                        <img src="assets/img/clothes-hanger_00001.png" alt="rectangle2">
+                        <img src="assets/img/clothes-hanger_00001-min.webp" alt="rectangle2" loading="lazy">
                         <p class="text-rectangle2">Código de vestimenta</p>
                         <p class="text-rectangle3">Casual/Regional</p>
                     </div>
-                    <script src="assets/js/script.js"></script>
+                    <script src="assets/js/script.js" defer></script>
                 </div>
             
                 <div class="new-container">
@@ -169,7 +169,7 @@
                         <p class="text-confirm2">¡Estás invitado!</p>
                         <div class="rectangle-confirm">
                             <div class="sobre">
-                                <img src="assets/img/sobre.png" alt="confirm">
+                                <img src="assets/img/sobre-min.webp" alt="confirm" loading="lazy">
                             </div>
                             <!-- Formulario de confirmación -->
                             <form id="inviteForm" onsubmit="event.preventDefault(); verifyPhone();">
@@ -225,7 +225,11 @@
             </div>
         </div>
     </div>
-</body>
+    <div id="custom-alert-modal" style="display: none;"></div>
+    <div id="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    <script src="assets/js/script.js" defer></script>
 </body>
 
 </html>
