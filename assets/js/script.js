@@ -193,25 +193,19 @@ function handleScrollAnimations() {
   });
 }
 
-// Mostrar la pantalla de carga y deshabilitar el desplazamiento
-document.body.classList.add('loading');
-
-// Esperar a que todos los recursos estén completamente cargados
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
-        loadingScreen.style.display = 'none'; // Ocultar la pantalla de carga
-    }
-    document.body.classList.remove('loading'); // Habilitar el desplazamiento
-    handleScrollAnimations(); // Ejecutar las animaciones iniciales
-});
-
 // Asegúrate de que las imágenes estén completamente cargadas antes de ejecutar las animaciones
 window.addEventListener('load', () => {
+  // Hide the loading screen once the page is fully loaded
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+      loadingScreen.style.display = 'none';
+  }
+
+  // Existing logic for animations and particles
   handleScrollAnimations();
   const images = document.querySelectorAll('img');
   images.forEach(img => {
-    img.addEventListener('load', handleScrollAnimations);
+      img.addEventListener('load', handleScrollAnimations);
   });
 });
 
@@ -237,13 +231,23 @@ function removeParticles() {
 window.addEventListener('load', () => {
     const welcomeModal = document.getElementById('welcome-modal');
     const openInvitationBtn = document.getElementById('open-invitation-btn');
+    const backgroundAudio = document.getElementById('background-audio');
 
     if (welcomeModal && openInvitationBtn) {
         createParticles();
 
-        openInvitationBtn.addEventListener('click', () => {
+        openInvitationBtn.addEventListener('click', async () => {
             removeParticles(); // Elimina las partículas
             welcomeModal.remove(); // Elimina el modal del DOM
+
+            if (backgroundAudio) {
+                try {
+                    await backgroundAudio.play(); // Intenta reproducir el audio
+                } catch (error) {
+                    console.error('Error al reproducir el audio:', error);
+                    showModalAlert('El navegador bloqueó la reproducción automática del audio. Por favor, habilítalo manualmente.');
+                }
+            }
         });
 
         history.scrollRestoration = 'manual'; // Desactiva la restauración automática del desplazamiento

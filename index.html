@@ -5,23 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeddingInvitation</title>
-    <link rel="icon" type="image/jpeg" href="assets/img/iconpage.jpeg">
+    <link rel="icon" type="image/jpeg" href="assets/img/iconpage.png">
     <link rel="stylesheet" href="assets/css/stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- Pantalla de carga -->
     <div id="loading-screen">
         <div class="spinner"></div>
-        <p>Cargando...</p>
     </div>
-
     <div id="welcome-modal">
         <div id="particles-container"></div> 
         <div class="welcome-modal-content fade-in">
             <p>Bienvenido</p>
             <button id="open-invitation-btn">Abrir Invitación ✉️</button>
+            <audio id="background-audio" loop>
+                <source src="assets/audio/audiobackground.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
         </div>
     </div>
     <div class="wedding-invitation-wrapper">
