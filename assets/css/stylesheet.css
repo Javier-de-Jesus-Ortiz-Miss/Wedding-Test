@@ -928,15 +928,16 @@ audio {
 }
 
 #loading-screen {
+  display: flex;
+  flex-direction: column; /* Aseguramos que los elementos estén en columna */
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: #FFFEE8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 10000;
 }
 
@@ -947,6 +948,15 @@ audio {
   width: 50px;
   height: 50px;
   animation: spin 1s linear infinite;
+}
+
+#loading-screen .loading-text {
+  display: block; /* Aseguramos que el texto esté en un bloque separado */
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: #784c00; /* Usamos el color predeterminado de la página */
+  margin-top: 1rem; /* Espaciado entre el spinner y el texto */
+  text-align: center; /* Centramos el texto */
 }
 
 @media screen and (min-width: 1024px) {
