@@ -181,7 +181,6 @@ function resetForm() {
 
 loadGuestData();
 
-
 function handleScrollAnimations() {
   const elements = document.querySelectorAll('.fade-in');
   const windowHeight = window.innerHeight;
@@ -194,8 +193,16 @@ function handleScrollAnimations() {
   });
 }
 
+// Asegúrate de que las imágenes estén completamente cargadas antes de ejecutar las animaciones
+window.addEventListener('load', () => {
+  handleScrollAnimations();
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    img.addEventListener('load', handleScrollAnimations);
+  });
+});
+
 window.addEventListener('scroll', handleScrollAnimations);
-window.addEventListener('load', handleScrollAnimations);
 
 function createParticles() {
     const particlesContainer = document.getElementById('particles-container');
