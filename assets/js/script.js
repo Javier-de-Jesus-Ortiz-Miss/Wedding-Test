@@ -193,29 +193,31 @@ function handleScrollAnimations() {
   });
 }
 
-// Asegúrate de que las imágenes estén completamente cargadas antes de ejecutar las animaciones
+// Aseguramos que las imágenes carguen antes de aplicar animaciones
 window.addEventListener('load', () => {
-  // Hide the loading screen once the page is fully loaded
   const loadingScreen = document.getElementById('loading-screen');
   if (loadingScreen) {
-      loadingScreen.style.display = 'none';
+    loadingScreen.style.display = 'none';
   }
 
-  // Re-enable scrolling
-  document.body.style.overflow = 'auto';
-
-  // Existing logic for animations and particles
   handleScrollAnimations();
+
   const images = document.querySelectorAll('img');
   images.forEach(img => {
-      img.addEventListener('load', handleScrollAnimations);
+    img.addEventListener('load', handleScrollAnimations);
   });
 });
 
-// Disable scrolling while the page is loading
-document.body.style.overflow = 'hidden';
-
-window.addEventListener('scroll', handleScrollAnimations);
+// Limitamos la frecuencia de los eventos de scroll para mejorar el rendimiento
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (!scrollTimeout) {
+    scrollTimeout = setTimeout(() => {
+      handleScrollAnimations();
+      scrollTimeout = null;
+    }, 100); // Ejecutamos cada 100ms
+  }
+});
 
 function createParticles() {
     const particlesContainer = document.getElementById('particles-container');

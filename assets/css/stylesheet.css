@@ -9,16 +9,19 @@
 html, body {
   width: 100%;
   overflow-x: hidden; 
+  overflow-y: auto; /* Aseguramos que el scroll vertical funcione correctamente */
+  scroll-behavior: smooth; /* Suavizamos el scroll */
 }
 
 body {
   background-color: #FFFEE8;
   justify-content: center;
   align-items: center;
-  display: block;
-  height: 400vh;
+  display: flex; /* Cambiamos a flex para centrar contenido */
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto; /* Cambiamos de 400vh a auto para evitar conflictos */
   overflow-x: hidden;
-
 }
 
 .wedding-invitation-wrapper{
@@ -635,6 +638,8 @@ audio {
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+  overflow-y: auto; /* Permitimos scroll interno si hay muchos invitados */
+  max-height: 50vh; /* Limitamos la altura para evitar desbordamientos */
 }
 
 #invitation-section label, #comment-section label {
@@ -668,8 +673,8 @@ audio {
 
 .guest-label {
   display: inline-block;
-  padding: 0.5vh 2vw;
-  margin: 0.5vh 0.5vw;
+  padding: 1vh 3vw; /* Aumentamos el área de toque */
+  margin: 1vh 1vw;
   border: 2px solid #8f5b01;
   border-radius: 20px;
   background-color: #FFF;
@@ -678,6 +683,7 @@ audio {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  touch-action: manipulation; /* Mejora la interacción táctil */
 }
 
 .guest-checkbox:checked + .guest-label {
@@ -920,7 +926,6 @@ audio {
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  overflow: hidden; /* Prevent scrolling */
 }
 
 #loading-screen .spinner {
