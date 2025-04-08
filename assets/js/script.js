@@ -60,63 +60,60 @@ async function verifyPhone() {
     const invitationSection = document.getElementById('invitation-section');
     const commentSection = document.getElementById('comment-section');
     const submitBtn = document.getElementById('submit-btn');
-  
-    if (guestData[phone]) {
-      const guests = guestData[phone];
-  
-      // Limpiar invitados previos
-      guestListDiv.innerHTML = '';
-  
-      guests.forEach(guest => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'guest-item'; // Clase para el estilo del contenedor
-  
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = guest;
-        checkbox.id = guest;
-        checkbox.name = 'guests';
-        checkbox.className = 'guest-checkbox'; // Clase para el estilo del checkbox
-  
-        const label = document.createElement('label');
-        label.htmlFor = guest;
-        label.textContent = guest;
-        label.className = 'guest-label'; // Clase para el estilo del label
-  
-        wrapper.appendChild(checkbox);
-        wrapper.appendChild(label);
-        guestListDiv.appendChild(wrapper);
-      });
-  
-      invitationSection.style.display = 'block';
-      commentSection.style.display = 'block';
-      submitBtn.style.display = 'block';
 
-      // Manejar el checkbox "No asistiré"
-      document.getElementById('not-attending').addEventListener('change', function () {
-          const guestCheckboxes = document.querySelectorAll('input[name="guests"]');
-          if (this.checked) {
-              // Desmarcar y deshabilitar todos los checkboxes de la lista de invitados
-              guestCheckboxes.forEach(checkbox => {
-                  checkbox.checked = false; // Desmarcar
-                  checkbox.disabled = true; // Deshabilitar
-                  checkbox.style.opacity = "0.5"; // Aplica el estilo directamente
-                  checkbox.style.cursor = "not-allowed";
-              });
-          } else {
-              // Habilitar todos los checkboxes de la lista de invitados
-              guestCheckboxes.forEach(checkbox => {
-                  checkbox.disabled = false;
-                  checkbox.style.opacity = "1"; // Restaurar estilo
-                  checkbox.style.cursor = "pointer";
-              });
-          }
-      });
-    
+    if (guestData[phone]) {
+        const guests = guestData[phone];
+        guestListDiv.innerHTML = ''; // Limpiar invitados previos
+
+        guests.forEach(guest => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'guest-item';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = guest;
+            checkbox.id = guest;
+            checkbox.name = 'guests';
+            checkbox.className = 'guest-checkbox';
+
+            const label = document.createElement('label');
+            label.htmlFor = guest;
+            label.textContent = guest;
+            label.className = 'guest-label';
+
+            wrapper.appendChild(checkbox);
+            wrapper.appendChild(label);
+            guestListDiv.appendChild(wrapper);
+        });
+
+        invitationSection.style.display = 'block';
+        commentSection.style.display = 'block';
+        submitBtn.style.display = 'block';
+
+        const notAttendingCheckbox = document.getElementById('not-attending');
+        if (notAttendingCheckbox) {
+            notAttendingCheckbox.addEventListener('change', function () {
+                const guestCheckboxes = document.querySelectorAll('input[name="guests"]');
+                if (this.checked) {
+                    guestCheckboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                        checkbox.disabled = true;
+                        checkbox.style.opacity = "0.5";
+                        checkbox.style.cursor = "not-allowed";
+                    });
+                } else {
+                    guestCheckboxes.forEach(checkbox => {
+                        checkbox.disabled = false;
+                        checkbox.style.opacity = "1";
+                        checkbox.style.cursor = "pointer";
+                    });
+                }
+            });
+        }
     } else {
-      showModalAlert('Número no encontrado.');
+        showModalAlert('Número no encontrado.');
     }
-  }
+}
 
 // Enviar datos al Apps Script (doPost)
 async function submitForm() {
@@ -216,17 +213,20 @@ function removeParticles() {
     particlesContainer.innerHTML = ''; // Clear all particles
 }
 
+// Asegúrate de que los elementos necesarios existan antes de manipularlos
 window.addEventListener('load', () => {
     const welcomeModal = document.getElementById('welcome-modal');
     const openInvitationBtn = document.getElementById('open-invitation-btn');
 
-    createParticles(); // Initialize particles
+    if (welcomeModal && openInvitationBtn) {
+        createParticles();
 
-    openInvitationBtn.addEventListener('click', () => {
-        removeParticles(); // Remove particles
-        welcomeModal.style.display = 'none';
-    });
+        openInvitationBtn.addEventListener('click', () => {
+            removeParticles();
+            welcomeModal.style.display = 'none';
+        });
 
-    history.scrollRestoration = 'manual'; // Disable automatic scroll restoration
-    window.scrollTo(0, 0); // Force scroll to the top
+        history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+    }
 });
