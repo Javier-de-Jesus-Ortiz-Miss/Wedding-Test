@@ -201,6 +201,9 @@ window.addEventListener('load', () => {
       loadingScreen.style.display = 'none';
   }
 
+  // Re-enable scrolling
+  document.body.style.overflow = 'auto';
+
   // Existing logic for animations and particles
   handleScrollAnimations();
   const images = document.querySelectorAll('img');
@@ -208,6 +211,9 @@ window.addEventListener('load', () => {
       img.addEventListener('load', handleScrollAnimations);
   });
 });
+
+// Disable scrolling while the page is loading
+document.body.style.overflow = 'hidden';
 
 window.addEventListener('scroll', handleScrollAnimations);
 
