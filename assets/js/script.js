@@ -115,8 +115,18 @@ async function verifyPhone() {
     }
 }
 
+const closingDate = new Date('2025-05-01T17:26:00').getTime(); // Fecha de cierre
+
 // Enviar datos al Apps Script (doPost)
 async function submitForm() {
+  const now = new Date().getTime();
+
+  // Verificamos si la fecha actual es posterior a la fecha de cierre
+  if (now > closingDate) {
+    showModalAlert('Lo sentimos, ya no se reciben más confirmaciones.');
+    return;
+  }
+
   const phone = document.getElementById('phone').value;
   const comment = document.getElementById('comment').value;
 
