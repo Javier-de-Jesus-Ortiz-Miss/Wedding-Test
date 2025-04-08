@@ -193,6 +193,19 @@ function handleScrollAnimations() {
   });
 }
 
+// Mostrar la pantalla de carga y deshabilitar el desplazamiento
+document.body.classList.add('loading');
+
+// Esperar a que todos los recursos estén completamente cargados
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        loadingScreen.style.display = 'none'; // Ocultar la pantalla de carga
+    }
+    document.body.classList.remove('loading'); // Habilitar el desplazamiento
+    handleScrollAnimations(); // Ejecutar las animaciones iniciales
+});
+
 // Asegúrate de que las imágenes estén completamente cargadas antes de ejecutar las animaciones
 window.addEventListener('load', () => {
   handleScrollAnimations();
