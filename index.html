@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeddingInvitation</title>
+    <title>InvitacionDiazOrtiz</title>
+    <meta name="description" content="Querido familiar o amigo.....">
     <link rel="icon" type="image/jpeg" href="assets/img/iconpage.png">
     <link rel="stylesheet" href="assets/css/stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -14,6 +15,14 @@
     <div id="loading-screen">
         <div class="spinner"></div>
         <p class="loading-text">Recibiendo Invitación</p>
+    </div>
+    <div class="navbar">
+        <button class="navbar-btn" onclick="scrollToSection('location')">
+            <i class="fas fa-map-marker-alt"></i>
+        </button>
+        <button class="navbar-btn" onclick="scrollToSection('confirmation')">
+            <i class="fas fa-calendar-check"></i>
+        </button>
     </div>
     <div id="welcome-modal">
         <div id="particles-container"></div> 
@@ -52,7 +61,8 @@
 
                     <div class="framenamestext">
                         <div class="phrase">
-                            <p>NUESTRA BODA PARTE I</p>
+                            <p>NUESTRA BODA</p>
+                            <p>PARTE I</p>
                         </div>
                         <div class="fiancée">
                             <h1>Mariana</h1>
@@ -83,7 +93,7 @@
                 <div class="audio-player-container">
                     <p class="audio-text">Escucha nuestra canción:</p>
                     <div class="audio-player">
-                        <audio autoplay controls loop>
+                        <audio controls loop>
                             <source src="assets/audio/audiobackground.mp3" type="audio/mpeg" loading="lazy">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
@@ -94,8 +104,18 @@
             <div class="wrapper-container-details">
                 <div class="container-details">
                     <p class="text-header">Querido familiar o amigo...</p>
-                    <p class="info">Acompáñanos a una cena con motivo de nuestra boda civil.</p>
-                    <p class="info2">(Habrá baño de piscina)</p>
+                    <p class="info">Queremos agradecerte infinitamente por estar con nosotros y apoyarnos desde que iniciamos nuestra relación, y por tanto, nos complace anunciarte que nos casaremos, como agradecimiento por tu apoyo incondicional, queremos invitarte a una pequeña cena para celebrar este acontecimiento, esperamos nos puedas confirmar tu asistencia con tiempo.</p>
+                    <div class="info">
+                        <div class="atentamente">
+                            <p>Atentamente.</p>
+                        </div>
+                        <div class="familia">
+                            <p>Familia Díaz Ortíz</p>
+                        </div>
+                    </div>
+                    <div class="info2">
+                        <p>(Habrá baño de piscina)</p>
+                    </div>
                     <div class="flower-decoration-datails">
                         <img src="assets/img/flowerfram.webp" alt="flowerdetails" loading="lazy"> 
                     </div>
@@ -112,19 +132,21 @@
                     <div class="wrapper-rectangle1">
                         <div class="rectangle1">
                             <p class="elementor-heading-rectangle1">Ubicación</p>
-                            <p class="text-rectangle1">Colonia Vicente Solis</p>
-                            <div class="time-rectangle1">
-                                <p class="time-item1"><i class="far fa-clock"></i> 5:30 PM <span
-                                        class="time-note">(Inicio)</span></p>
-                                <p class="time-item2"><i class="far fa-clock"></i> 6:00 PM <span
-                                        class="time-note">(Ceremonia Civil)</span></p>
+                            <p class="text-rectangle1">Colonia Vicente Solis / San José centro</p>
+                            <div class="schedule-and-address">
+                                <p class="elementor-heading-rectangle1">Horarios</p>
+                                <div class="time-rectangle1">
+                                    <p class="time-item1"><i class="far fa-clock"></i> 5:30 PM <span class="time-label">(Inicio)</span></p>
+                                    <p class="time-item2"><i class="far fa-clock"></i> 6:00 PM <span class="time-label">(Ceremonia Civil)</span></p>
+                                </div>
+                                <p class="elementor-heading-rectangle1">Dirección</p>
+                                <p class="text-rectangle1">Calle 81 B #453 F x 36-A y 40</p>
                             </div>
                             <iframe class="map-iframe"
                                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3844.075209776036!2d-89.61582468618111!3d20.95158877879006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjDCsDU3JzA1LjgiTiA4OcKwMzYnNDcuNCJX!5e0!3m2!1ses-419!2smx!4v1741362844925!5m2!1ses-419!2smx"
                                 style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
-
                             <div class="map-link-container">
                                 <p class="map-link">
                                     <a href="https://www.google.com/maps/place/20%C2%B057'05.8%22N+89%C2%B036'47.4%22W/@20.9516767,-89.6135682,19.1z/data=!4m4!3m3!8m2!3d20.9516234!4d-89.6131675?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
@@ -132,12 +154,6 @@
                                         <i class="fas fa-map-marker-alt"></i> Ver en Google Maps
                                     </a>
                                 </p>
-                            </div>
-                            <div class="flowersframe1">
-                                <img src="assets/img/flowerfram.webp" alt="flowersframe" loading="lazy">
-                            </div>
-                            <div class="flowersframe2">
-                                <img src="assets/img/flowerfram.webp" alt="flowersframe2" loading="lazy">
                             </div>
                         </div>
                     </div>

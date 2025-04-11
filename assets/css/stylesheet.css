@@ -187,12 +187,15 @@ audio {
   width: 100%; 
 }
 
+.wrapper-container-details{
+  margin-bottom: 8vh;
+}
 
 .container-details{
   position: relative;
   display: block;
   width: 90%;
-  height: 50vw;
+  height: 112vw;
   background-color: #F4D7A1;
   margin: 0 auto;
   border-radius: 2vw;
@@ -201,7 +204,7 @@ audio {
 
 .flower-decoration-datails{
   position: absolute;
-  top: 75%;
+  top: 87%;
   left: 79%;
 }
 
@@ -240,6 +243,10 @@ audio {
   padding: 1rem;
 }
 
+.info p {
+  font-weight: 600; /* Make "Atentamente" bold */
+}
+
 .info2{
   font-family: "Montserrat", sans-serif;
   text-align: center;
@@ -248,6 +255,10 @@ audio {
   text-align: center;
   color: #784c00;
 
+}
+
+.info2 p {
+  font-size: 3vw; /* Make "(Habrá baño de piscina)" smaller */
 }
 
 .container2{
@@ -328,7 +339,7 @@ audio {
   transform: rotate(60deg);
 }
 
-.rectangle1{
+.rectangle1 {
   position: relative;
   display: block;
   width: 90%;
@@ -338,23 +349,25 @@ audio {
   margin-top: 5vh;
   border-radius: 2vw;
   border: 0.8vw solid #AD9466;
+  padding: 2vw; /* Add padding for spacing */
+  box-sizing: border-box;
 }
 
-.elementor-heading-rectangle1{
-  font-family: "Lora", sans-serif;
-  font-size: 6vw;
-  font-weight: 650;
+.elementor-heading-rectangle1 {
+  font-family: "Lora", serif;
+  font-size: 4.5vw; /* Adjust size for headings */
+  font-weight: 700;
   text-align: center;
-  margin-top: 2vh;
+  margin-top: 1.5vh;
   color: #8f5b01;
 }
 
-.text-rectangle1{
+.text-rectangle1 {
   font-family: "Montserrat", sans-serif;
-  font-size: 4vw;
+  font-size: 3.5vw; /* Adjust size for text */
   font-weight: 500;
   text-align: center;
-  margin-top: 1.4vh;
+  margin-top: 1vh;
   color: #8f5b01;
 }
 
@@ -368,16 +381,22 @@ audio {
 }
 
 .time-item1{
-  margin-bottom: 0.1rem;
+  margin-bottom: 1rem; /* Added margin-bottom for spacing */
 }
 
-.time-note{
-  font-family: "MonteCarlo", sans-serif;
-  font-size: 6vw;
-  font-weight: 700;
+.time-note {
+  font-family: "MonteCarlo", cursive;
+  font-size: 3vw; /* Adjust size for time notes */
+  font-weight: 600;
   color: #815406;
 }
 
+.time-label {
+  font-family: "MonteCarlo", sans-serif;
+  font-size: 1.3em;
+  color: #8f5b01; /* Same color as the time */
+  background: none;
+}
 
 .map-iframe {
   margin: 0 auto;
@@ -391,27 +410,29 @@ audio {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
+.map-link-container {
+  text-align: center; /* Ensure the container centers its content */
+}
+
 .map-link {
-  display: block;
-  margin: 0 auto;
-  width: 80%;
+  display: inline-block; /* Ensure the link behaves like a block for centering */
+  margin: 0 auto; /* Center the link horizontally */
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5vw;
+  font-weight: 500;
   text-align: center;
-  font-size: 4vw;
-  margin-top: 3vh; 
   color: #ffffff;
   background-color: #d18a059e;
   padding: 1vh 2vw;
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  margin-bottom: 3vh;
+  border-radius: 10px;
+  margin-top: 2vh;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .map-link a {
-  color: inherit; 
-  text-decoration: none; 
-  display: block; 
-  width: 100%; 
-  height: 100%; 
+  color: inherit;
+  text-decoration: none;
 }
 
 .text-headerc2 {
@@ -1062,17 +1083,18 @@ audio {
   position: relative;
   display: block;
   width: 90%;
-  height: 40vw;
+  height: 80vw;
   background-color: #F4D7A1;
   margin: 0 auto;
   border-radius: 2vw;
   border: 0.8vw solid #AD9466;
   transform: scale(0.6);
+  margin-top: -5vh;
 }
 
 .flower-decoration-datails{
   position: absolute;
-  top: 60%;
+  top: 80%;
   left: 71%;
 }
 
@@ -1122,7 +1144,7 @@ audio {
 .wrapper-container2{
   display: block;
   position: relative;
-  margin-top: -10vh;
+  margin-top: -17vh;
 }
 .container2{
   position: relative;
@@ -1273,9 +1295,8 @@ audio {
 .map-link-container{
   margin-top: 10vh;
   margin-bottom: 15vh;
+  text-align: center; /* Ensure the container centers its content */
 }
-
-
 
 .container3{
   transform: scale(0.6);
@@ -1656,6 +1677,8 @@ audio {
   border-color: #d18a05;
 }
 
+
+
 }
 
 @media screen and (min-width: 1300px) {
@@ -1665,6 +1688,80 @@ audio {
     margin-top: -80vh;
   }
   
+}
+
+.atentamente p {
+  font-weight: 600; /* Bold for "Atentamente" */
+}
+
+.familia p {
+  font-weight: 400; /* Normal weight for "Familia Díaz Ortíz" */
+}
+
+.navbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f4d7a1;
+  border: 2px solid #ad9466;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Arrange buttons in a column */
+  gap: 10px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+}
+
+.navbar.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navbar-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem; /* Adjust size for icons */
+  font-weight: 500;
+  color: #784c00;
+  background-color: #fff;
+  border: 2px solid #ad9466;
+  border-radius: 10px;
+  padding: 10px; /* Adjust padding for icons */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-btn i {
+  margin: 0; /* Remove margin for icons */
+}
+
+.navbar-btn:hover {
+  background-color: #d18a05;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    bottom: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+
+  .navbar-btn {
+    font-size: 1rem; /* Smaller icons for mobile */
+    padding: 5px; /* Adjust padding for smaller buttons */
+  }
 }
 
 

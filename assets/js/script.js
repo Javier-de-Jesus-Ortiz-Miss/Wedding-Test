@@ -115,7 +115,7 @@ async function verifyPhone() {
     }
 }
 
-const closingDate = new Date('2025-05-01T17:26:00').getTime(); // Fecha de cierre
+const closingDate = new Date('2025-05-01T23:59:00').getTime(); // Fecha de cierre
 
 // Enviar datos al Apps Script (doPost)
 async function submitForm() {
@@ -267,3 +267,29 @@ window.addEventListener('load', () => {
         window.scrollTo(0, 0); // Asegura que la página comience en la parte superior
     }
 });
+
+window.addEventListener('load', () => {
+    const navbar = document.querySelector('.navbar');
+    setTimeout(() => {
+        navbar.classList.add('visible'); // Show navbar after a delay
+    }, 3000); // Delay of 3 seconds
+});
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.innerWidth <= 768) { // Only apply for mobile devices
+        if (window.scrollY > 100) { // Show navbar after scrolling 100px
+            navbar.classList.remove('hidden');
+        } else {
+            navbar.classList.add('hidden');
+        }
+    }
+});
+
+function scrollToSection(sectionId) {
+    if (sectionId === 'location') {
+        document.querySelector('.rectangle1').scrollIntoView({ behavior: 'smooth' });
+    } else if (sectionId === 'confirmation') {
+        document.querySelector('.new-container').scrollIntoView({ behavior: 'smooth' });
+    }
+}
